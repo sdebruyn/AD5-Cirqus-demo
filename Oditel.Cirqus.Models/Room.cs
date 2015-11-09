@@ -1,6 +1,8 @@
-﻿namespace Oditel.Cirqus.Models
+﻿using Oditel.Models;
+
+namespace Oditel.Cirqus.Models
 {
-    public class Room
+    public class Room: AggregateRootBase, IRoom
     {
     }
 }

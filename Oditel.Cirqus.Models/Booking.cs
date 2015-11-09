@@ -1,6 +1,8 @@
-﻿namespace Oditel.Cirqus.Models
+﻿using Oditel.Models;
+
+namespace Oditel.Cirqus.Models
 {
-    public class Booking
+    public class Booking: AggregateRootBase, IBooking
     {
     }
 }

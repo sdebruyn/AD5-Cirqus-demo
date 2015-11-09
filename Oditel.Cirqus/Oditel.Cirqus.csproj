@@ -46,6 +46,10 @@
     <Compile Include="RoomService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Oditel.Models\Oditel.Models.csproj">
+      <Project>{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}</Project>
+      <Name>Oditel.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Oditel.Services\Oditel.Services.csproj">
       <Project>{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}</Project>
       <Name>Oditel.Services</Name>

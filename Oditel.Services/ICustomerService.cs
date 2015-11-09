@@ -1,7 +1,9 @@
-﻿namespace Oditel.Services
+﻿using Oditel.Models;
+
+namespace Oditel.Services
 {
     public interface ICustomerService
     {
-        void AddCustomer();
+        void AddCustomer(ICustomer customer);
     }
 }

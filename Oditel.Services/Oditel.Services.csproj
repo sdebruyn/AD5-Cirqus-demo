@@ -45,6 +45,12 @@
     <Compile Include="IRoomService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Oditel.Models\Oditel.Models.csproj">
+      <Project>{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}</Project>
+      <Name>Oditel.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
