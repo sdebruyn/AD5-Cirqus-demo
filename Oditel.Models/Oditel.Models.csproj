@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="BathRoom.cs" />
+    <Compile Include="Bed.cs" />
+    <Compile Include="Dimensions.cs" />
     <Compile Include="IBooking.cs" />
     <Compile Include="ICustomer.cs" />
     <Compile Include="IRoom.cs" />

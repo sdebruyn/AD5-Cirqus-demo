@@ -5,9 +5,10 @@ using Oditel.Models;
 
 namespace Oditel.Cirqus.Models
 {
-    public class Customer: AggregateRootBase, ICustomer,
+    public class Customer : AggregateRootBase, ICustomer,
         IEmit<AggregateRootCreatedEvent<Customer>>,
-        IEmit<AggregateRootDeletedEvent<Customer>>
+        IEmit<AggregateRootDeletedEvent<Customer>>,
+        IEmit<CustomerInfoUpdatedEvent>
     {
         private DateTimeOffset? _createdDate;
         private DateTimeOffset? _deletedDate;
@@ -24,6 +25,17 @@ namespace Oditel.Cirqus.Models
             set { Emit(new AggregateRootCreatedEvent<Customer>(value)); }
         }
 
+        public Guid? CustomerId => ConvertIdToGuid();
+        public string Name { get; private set; }
+        public Address Address { get; private set; }
+        public string Email { get; private set; }
+
+        public void UpdateInfo(string name, string email, Address address)
+        {
+            ThrowIfDeleted();
+            Emit(new CustomerInfoUpdatedEvent(name, email, address));
+        }
+
         public void Apply(AggregateRootCreatedEvent<Customer> e)
         {
             _createdDate = e.CreatedDate;
@@ -32,6 +44,15 @@ namespace Oditel.Cirqus.Models
         public void Apply(AggregateRootDeletedEvent<Customer> e)
         {
             _deletedDate = e.DeletedDate;
+        }
+
+        public void Apply(CustomerInfoUpdatedEvent e)
+        {
+            ThrowIfDeleted();
+
+            Address = e.Address;
+            Email = e.Email;
+            Name = e.Name;
         }
     }
 }

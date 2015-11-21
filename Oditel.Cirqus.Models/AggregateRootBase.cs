@@ -3,7 +3,7 @@ using d60.Cirqus.Aggregates;
 
 namespace Oditel.Cirqus.Models
 {
-    public abstract class AggregateRootBase: AggregateRoot
+    public abstract class AggregateRootBase : AggregateRoot
     {
         public abstract DateTimeOffset? CreatedDate { get; set; }
         public abstract DateTimeOffset? DeletedDate { get; set; }
@@ -20,6 +20,12 @@ namespace Oditel.Cirqus.Models
             {
                 throw new InvalidOperationException("This object has been deleted.");
             }
+        }
+
+        public Guid? ConvertIdToGuid()
+        {
+            Guid parsed;
+            return Guid.TryParse(Id, out parsed) ? (Guid?) parsed : null;
         }
     }
 }

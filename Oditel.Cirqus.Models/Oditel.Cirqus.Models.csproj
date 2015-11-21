@@ -46,15 +46,30 @@
   <ItemGroup>
     <Compile Include="AggregateRootBase.cs" />
     <Compile Include="Booking.cs" />
+    <Compile Include="Commands\AddBookingCommand.cs" />
+    <Compile Include="Commands\AddCustomerCommand.cs" />
+    <Compile Include="Commands\AddRoomCommand.cs" />
+    <Compile Include="Commands\CreateCommand.cs" />
+    <Compile Include="Commands\ICreateCommand.cs" />
+    <Compile Include="Commands\RemoveBookingCommand.cs" />
+    <Compile Include="Commands\UpdateCommand.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Events\AggregateRootCreatedEvent.cs" />
     <Compile Include="Events\AggregateRootDeletedEvent.cs" />
+    <Compile Include="Events\BookingInfoUpdatedEvent.cs" />
+    <Compile Include="Events\BookingRoomAddedEvent.cs" />
+    <Compile Include="Events\BookingRoomRemovedEvent.cs" />
+    <Compile Include="Events\CustomerInfoUpdatedEvent.cs" />
+    <Compile Include="Events\RoomBedAddedEvent.cs" />
+    <Compile Include="Events\RoomInfoUpdatedEvent.cs" />
+    <Compile Include="Events\RoomBedRemovedEvent.cs" />
+    <Compile Include="Exceptions\ActionFailedException.cs" />
+    <Compile Include="Exceptions\CreationFailedException.cs" />
+    <Compile Include="Exceptions\LoadingFailedException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Oditel.Models\Oditel.Models.csproj">
       <Project>{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}</Project>
