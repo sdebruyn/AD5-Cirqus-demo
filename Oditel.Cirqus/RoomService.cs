@@ -6,7 +6,7 @@ namespace Oditel.Cirqus
 {
     public class RoomService : IRoomService
     {
-        public void AddRoom(IRoom room)
+        public Guid AddRoom(IRoom room)
         {
             throw new NotImplementedException();
         }

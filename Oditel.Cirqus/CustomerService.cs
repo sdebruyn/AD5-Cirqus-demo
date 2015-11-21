@@ -6,7 +6,7 @@ namespace Oditel.Cirqus
 {
     public class CustomerService : ICustomerService
     {
-        public void AddCustomer(ICustomer customer)
+        public Guid AddCustomer(ICustomer customer)
         {
             throw new NotImplementedException();
         }
