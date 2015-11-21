@@ -40,14 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="BathRoom.cs" />
-    <Compile Include="Bed.cs" />
-    <Compile Include="Dimensions.cs" />
-    <Compile Include="IBooking.cs" />
-    <Compile Include="ICustomer.cs" />
-    <Compile Include="IRoom.cs" />
+    <Compile Include="BookingContext\IBooking.cs" />
+    <Compile Include="CustomerContext\Address.cs" />
+    <Compile Include="CustomerContext\ICustomer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomContext\BathRoom.cs" />
+    <Compile Include="RoomContext\Bed.cs" />
+    <Compile Include="RoomContext\Dimensions.cs" />
+    <Compile Include="RoomContext\IRoom.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

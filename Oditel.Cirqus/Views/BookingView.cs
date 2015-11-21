@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Oditel.Cirqus.Models;
 using Oditel.Cirqus.Models.Events;
 using Oditel.Models;
+using Oditel.Models.BookingContext;
 
 namespace Oditel.Cirqus.Views
 {

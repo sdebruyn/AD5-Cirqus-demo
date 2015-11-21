@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Oditel.Models;
+using Oditel.Models.RoomContext;
 
 namespace Oditel.Cirqus.Models.Commands
 {

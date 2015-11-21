@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Oditel.Models;
+using Oditel.Models.RoomContext;
 
 namespace Oditel.Services
 {

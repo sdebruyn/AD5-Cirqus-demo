@@ -4,6 +4,7 @@ using d60.Cirqus;
 using Oditel.Cirqus.Models.Commands;
 using Oditel.Cirqus.Models.Exceptions;
 using Oditel.Models;
+using Oditel.Models.CustomerContext;
 using Oditel.Services;
 
 namespace Oditel.Cirqus.Services

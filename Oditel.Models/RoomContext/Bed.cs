@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Oditel.Models
+namespace Oditel.Models.RoomContext
 {
     public sealed class Bed : IEquatable<Bed>, IEquatable<object>
     {

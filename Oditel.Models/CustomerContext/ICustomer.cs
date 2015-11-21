@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Oditel.Models
+namespace Oditel.Models.CustomerContext
 {
     public interface ICustomer
     {

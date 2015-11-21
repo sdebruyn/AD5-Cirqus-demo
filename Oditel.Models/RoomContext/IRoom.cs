@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Oditel.Models
+namespace Oditel.Models.RoomContext
 {
     public interface IRoom
     {

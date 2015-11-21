@@ -1,4 +1,4 @@
-﻿namespace Oditel.Models
+﻿namespace Oditel.Models.RoomContext
 {
     public sealed class Dimensions
     {

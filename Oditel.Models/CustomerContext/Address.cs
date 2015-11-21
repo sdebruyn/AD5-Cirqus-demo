@@ -1,4 +1,4 @@
-﻿namespace Oditel.Models
+﻿namespace Oditel.Models.CustomerContext
 {
     public sealed class Address
     {
