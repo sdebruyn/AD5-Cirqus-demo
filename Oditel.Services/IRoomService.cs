@@ -1,9 +1,10 @@
-﻿using Oditel.Models;
+﻿using System;
+using Oditel.Models;
 
 namespace Oditel.Services
 {
     public interface IRoomService
     {
-        void AddRoom(IRoom room);
+        Guid AddRoom(IRoom room);
     }
 }

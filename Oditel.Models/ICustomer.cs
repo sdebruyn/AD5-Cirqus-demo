@@ -8,8 +8,8 @@ namespace Oditel.Models
         string Name { get; }
         Address Address { get; }
         string Email { get; }
-        void UpdateInfo(string name, string email, Address address);
         DateTimeOffset? CreatedDate { get; set; }
         DateTimeOffset? DeletedDate { get; set; }
+        void UpdateInfo(string name, string email, Address address);
     }
 }

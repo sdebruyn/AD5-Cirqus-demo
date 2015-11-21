@@ -2,7 +2,7 @@
 
 namespace Oditel.Cirqus.Models.Commands
 {
-    public class RemoveBookingCommand: UpdateCommand<Booking>
+    public class RemoveBookingCommand : UpdateCommand<Booking>
     {
         public RemoveBookingCommand(Guid bookingId) : base(bookingId)
         {

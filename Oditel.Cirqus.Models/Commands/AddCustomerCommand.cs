@@ -4,9 +4,9 @@ namespace Oditel.Cirqus.Models.Commands
 {
     public class AddCustomerCommand : CreateCommand<Customer>
     {
-        private readonly string _name;
-        private readonly string _email;
         private readonly Address _address;
+        private readonly string _email;
+        private readonly string _name;
 
         public AddCustomerCommand(string name, string email, Address address)
         {

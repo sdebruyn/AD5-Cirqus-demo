@@ -22,18 +22,6 @@ namespace Oditel.Cirqus.Models
             _beds = new List<Bed>();
         }
 
-        public override DateTimeOffset? CreatedDate
-        {
-            get { return _createdDate; }
-            set { Emit(new AggregateRootDeletedEvent<Room>(value)); }
-        }
-
-        public override DateTimeOffset? DeletedDate
-        {
-            get { return _deletedDate; }
-            set { Emit(new AggregateRootCreatedEvent<Room>(value)); }
-        }
-
         public void Apply(AggregateRootCreatedEvent<Room> e)
         {
             _createdDate = e.CreatedDate;
@@ -63,6 +51,18 @@ namespace Oditel.Cirqus.Models
             HasTV = e.Tv;
             SeperateToilet = e.SeperateToilet;
             Bathroom = e.Bathroom;
+        }
+
+        public override DateTimeOffset? CreatedDate
+        {
+            get { return _createdDate; }
+            set { Emit(new AggregateRootDeletedEvent<Room>(value)); }
+        }
+
+        public override DateTimeOffset? DeletedDate
+        {
+            get { return _deletedDate; }
+            set { Emit(new AggregateRootCreatedEvent<Room>(value)); }
         }
 
         public Guid? RoomId => ConvertIdToGuid();

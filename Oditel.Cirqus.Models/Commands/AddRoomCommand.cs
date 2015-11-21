@@ -5,10 +5,10 @@ namespace Oditel.Cirqus.Models.Commands
 {
     public class AddRoomCommand : CreateCommand<Room>
     {
-        private readonly bool _tv;
-        private readonly bool _seperateToilet;
         private readonly Bathroom _bathroom;
         private readonly List<Bed> _beds;
+        private readonly bool _seperateToilet;
+        private readonly bool _tv;
 
         public AddRoomCommand(bool tv, bool seperateToilet, Bathroom bathroom, params Bed[] beds)
         {
