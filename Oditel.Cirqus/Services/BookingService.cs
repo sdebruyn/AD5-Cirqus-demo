@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using d60.Cirqus;
 using Oditel.Cirqus.Models.Commands;
 using Oditel.Cirqus.Models.Exceptions;
 using Oditel.Models;
 using Oditel.Services;
 
-namespace Oditel.Cirqus
+namespace Oditel.Cirqus.Services
 {
     public class BookingService : IBookingService
     {
@@ -29,5 +30,15 @@ namespace Oditel.Cirqus
 
         public bool RemoveBooking(Guid bookingId)
             => _processor.ProcessCommand(new RemoveBookingCommand(bookingId)).EventsWereEmitted;
+
+        public IEnumerable<IBooking> GetAllBookings()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IBooking GetBookingById(Guid bookingId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

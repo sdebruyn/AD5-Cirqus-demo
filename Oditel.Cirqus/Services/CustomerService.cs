@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using d60.Cirqus;
 using Oditel.Cirqus.Models.Commands;
 using Oditel.Cirqus.Models.Exceptions;
 using Oditel.Models;
 using Oditel.Services;
 
-namespace Oditel.Cirqus
+namespace Oditel.Cirqus.Services
 {
     public class CustomerService : ICustomerService
     {
@@ -25,6 +26,16 @@ namespace Oditel.Cirqus
                 return command.CreatedGuid;
             }
             throw new CreationFailedException(command.CreatedGuid, typeof(ICustomer));
+        }
+
+        public IEnumerable<ICustomer> GetAllCustomers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICustomer GetCustomer(Guid customerId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
