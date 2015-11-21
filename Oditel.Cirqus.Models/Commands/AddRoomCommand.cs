@@ -19,8 +19,9 @@ namespace Oditel.Cirqus.Models.Commands
             _beds = new List<Bed>(beds);
         }
 
-        public AddRoomCommand(IRoom room): this(room.HasTV, room.SeperateToilet, room.Bathroom, room.Beds.ToArray())
-        {}
+        public AddRoomCommand(IRoom room) : this(room.HasTV, room.SeperateToilet, room.Bathroom, room.Beds.ToArray())
+        {
+        }
 
         protected override void Update(Room instance)
         {

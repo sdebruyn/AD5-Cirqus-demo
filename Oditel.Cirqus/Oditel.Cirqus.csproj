@@ -34,6 +34,10 @@
       <HintPath>..\packages\d60.Cirqus.0.63.12\lib\NET45\d60.Cirqus.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +54,9 @@
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Views\BookingView.cs" />
     <Compile Include="Views\CustomerView.cs" />
+    <Compile Include="Views\Models\Booking.cs" />
+    <Compile Include="Views\Models\Customer.cs" />
+    <Compile Include="Views\Models\Room.cs" />
     <Compile Include="Views\RoomView.cs" />
   </ItemGroup>
   <ItemGroup>

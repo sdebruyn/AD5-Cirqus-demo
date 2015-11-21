@@ -15,8 +15,9 @@ namespace Oditel.Cirqus.Models.Commands
             _address = address;
         }
 
-        public AddCustomerCommand(ICustomer customer): this(customer.Name, customer.Email, customer.Address)
-        { }
+        public AddCustomerCommand(ICustomer customer) : this(customer.Name, customer.Email, customer.Address)
+        {
+        }
 
         protected override void Update(Customer instance)
         {

@@ -25,7 +25,7 @@ namespace Oditel.Cirqus.Services
             {
                 return command.CreatedGuid;
             }
-            throw new CreationFailedException(command.CreatedGuid, typeof(IRoom));
+            throw new CreationFailedException(command.CreatedGuid, typeof (IRoom));
         }
 
         public IEnumerable<IRoom> GetAllRooms()
