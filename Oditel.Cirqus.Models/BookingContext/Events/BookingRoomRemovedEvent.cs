@@ -1,11 +1,11 @@
 ﻿using System;
 using d60.Cirqus.Events;
 
-namespace Oditel.Cirqus.Models.Events
+namespace Oditel.Cirqus.Models.BookingContext.Events
 {
-    public class BookingRoomAddedEvent : DomainEvent<Booking>
+    public class BookingRoomRemovedEvent : DomainEvent<Booking>
     {
-        public BookingRoomAddedEvent(Guid roomId, DateTimeOffset checkInDate)
+        public BookingRoomRemovedEvent(Guid roomId, DateTimeOffset checkInDate)
         {
             RoomId = roomId;
             CheckInDate = checkInDate;

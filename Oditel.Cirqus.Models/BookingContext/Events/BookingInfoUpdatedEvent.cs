@@ -1,7 +1,7 @@
 ﻿using System;
 using d60.Cirqus.Events;
 
-namespace Oditel.Cirqus.Models.Events
+namespace Oditel.Cirqus.Models.BookingContext.Events
 {
     public class BookingInfoUpdatedEvent : DomainEvent<Booking>
     {

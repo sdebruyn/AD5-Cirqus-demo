@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Oditel.Cirqus.Models.Exceptions
+namespace Oditel.Cirqus.Models.BaseContext.Exceptions
 {
     [Serializable]
     public abstract class ActionFailedException : Exception

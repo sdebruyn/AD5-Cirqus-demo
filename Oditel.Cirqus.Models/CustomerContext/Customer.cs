@@ -1,9 +1,11 @@
 ﻿using System;
 using d60.Cirqus.Events;
-using Oditel.Cirqus.Models.Events;
+using Oditel.Cirqus.Models.BaseContext;
+using Oditel.Cirqus.Models.BaseContext.Events;
+using Oditel.Cirqus.Models.CustomerContext.Events;
 using Oditel.Models.CustomerContext;
 
-namespace Oditel.Cirqus.Models
+namespace Oditel.Cirqus.Models.CustomerContext
 {
     public class Customer : AggregateRootBase, ICustomer,
         IEmit<AggregateRootCreatedEvent<Customer>>,
