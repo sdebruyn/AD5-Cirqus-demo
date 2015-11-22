@@ -5,11 +5,13 @@ namespace Oditel.Cirqus.Models.Events
 {
     public class BookingRoomAddedEvent : DomainEvent<Booking>
     {
-        public BookingRoomAddedEvent(Guid roomId)
+        public BookingRoomAddedEvent(Guid roomId, DateTimeOffset checkInDate)
         {
             RoomId = roomId;
+            CheckInDate = checkInDate;
         }
 
         public Guid RoomId { get; }
+        public DateTimeOffset CheckInDate { get; }
     }
 }

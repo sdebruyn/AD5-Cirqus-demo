@@ -24,8 +24,6 @@ namespace Oditel.Console
         private static void Main()
         {
             // Cirqus configuration
-            Debugger.Break();
-
             var viewManagers = new List<IViewManager>();
 
             var bookingViewManager =

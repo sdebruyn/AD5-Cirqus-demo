@@ -31,7 +31,14 @@ namespace Oditel.Cirqus.Models
         public override DateTimeOffset? DeletedDate
         {
             get { return _deletedDate; }
-            set { Emit(new AggregateRootDeletedEvent<Booking>(value)); }
+            set
+            {
+                foreach (var room in Rooms)
+                {
+                    Emit(new BookingRoomRemovedEvent(room, CheckIn));
+                }
+                Emit(new AggregateRootDeletedEvent<Booking>(value));
+            }
         }
 
         public Guid? BookingId => ConvertIdToGuid();
@@ -51,13 +58,12 @@ namespace Oditel.Cirqus.Models
         public void AddRoom(Guid roomId)
         {
             ThrowIfDeleted();
-            Emit(new BookingRoomAddedEvent(roomId));
+            Emit(new BookingRoomAddedEvent(roomId, CheckIn));
         }
 
         public void RemoveRoom(Guid roomId)
         {
-            ThrowIfDeleted();
-            Emit(new BookingRoomRemovedEvent(roomId));
+            Emit(new BookingRoomRemovedEvent(roomId, CheckIn));
         }
 
         public void Apply(AggregateRootCreatedEvent<Booking> e)

@@ -17,39 +17,50 @@ namespace Oditel.Cirqus.Views
 
         public void Handle(IViewContext context, BookingRoomAddedEvent domainEvent)
         {
-            UpdateQuarter(q => q++);
-        }
-
-        public void Handle(IViewContext context, BookingRoomRemovedEvent domainEvent)
-        {
-            UpdateQuarter(q => q--);
-        }
-
-        public string Id { get; set; }
-        public long LastGlobalSequenceNumber { get; set; }
-
-        private byte GetQuarter() => (byte) ((DateTimeOffset.UtcNow.Month/4) + 1);
-
-        private void UpdateQuarter(Action<int> updateAction)
-        {
-            switch (GetQuarter())
+            switch (GetQuarter(domainEvent.CheckInDate))
             {
                 case 1:
-                    updateAction(BookingsInFirstQuarter);
+                    BookingsInFirstQuarter++;
                     break;
                 case 2:
-                    updateAction(BookingsInSecondQuarter);
+                    BookingsInSecondQuarter++;
                     break;
                 case 3:
-                    updateAction(BookingsInThirdQuarter);
+                    BookingsInThirdQuarter++;
                     break;
                 case 4:
-                    updateAction(BookingsInFourthQuarter);
+                    BookingsInFourthQuarter++;
                     break;
                 default:
                     throw new InvalidOperationException("Quarter out of bounds.");
             }
         }
+
+        public void Handle(IViewContext context, BookingRoomRemovedEvent domainEvent)
+        {
+            switch (GetQuarter(domainEvent.CheckInDate))
+            {
+                case 1:
+                    BookingsInFirstQuarter--;
+                    break;
+                case 2:
+                    BookingsInSecondQuarter--;
+                    break;
+                case 3:
+                    BookingsInThirdQuarter--;
+                    break;
+                case 4:
+                    BookingsInFourthQuarter--;
+                    break;
+                default:
+                    throw new InvalidOperationException("Quarter out of bounds.");
+            }
+        }
+
+        public string Id { get; set; }
+        public long LastGlobalSequenceNumber { get; set; }
+
+        private static byte GetQuarter(DateTimeOffset checkInDate) => (byte) ((checkInDate.Month/4) + 1);
 
         private class Locator : HandlerViewLocator,
             IGetViewIdsFor<BookingRoomAddedEvent>,
