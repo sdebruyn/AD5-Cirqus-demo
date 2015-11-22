@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using d60.Cirqus.Events;
-using Oditel.Cirqus.Models.Events;
+using Oditel.Cirqus.Models.BaseContext;
+using Oditel.Cirqus.Models.BaseContext.Events;
+using Oditel.Cirqus.Models.BookingContext.Events;
 using Oditel.Models.BookingContext;
 
-namespace Oditel.Cirqus.Models
+namespace Oditel.Cirqus.Models.BookingContext
 {
     public class Booking : AggregateRootBase, IBooking,
         IEmit<AggregateRootCreatedEvent<Booking>>,

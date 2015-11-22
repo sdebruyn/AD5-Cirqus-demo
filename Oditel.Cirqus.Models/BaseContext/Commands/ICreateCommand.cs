@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Oditel.Cirqus.Models.Commands
+namespace Oditel.Cirqus.Models.BaseContext.Commands
 {
     public interface ICreateCommand
     {

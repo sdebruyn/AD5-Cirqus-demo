@@ -1,7 +1,7 @@
 ﻿using System;
 using d60.Cirqus.Aggregates;
 
-namespace Oditel.Cirqus.Models
+namespace Oditel.Cirqus.Models.BaseContext
 {
     public abstract class AggregateRootBase : AggregateRoot
     {

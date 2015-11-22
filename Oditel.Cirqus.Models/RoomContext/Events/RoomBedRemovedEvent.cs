@@ -1,11 +1,11 @@
 ﻿using d60.Cirqus.Events;
 using Oditel.Models.RoomContext;
 
-namespace Oditel.Cirqus.Models.Events
+namespace Oditel.Cirqus.Models.RoomContext.Events
 {
-    public class RoomBedAddedEvent : DomainEvent<Room>
+    public class RoomBedRemovedEvent : DomainEvent<Room>
     {
-        public RoomBedAddedEvent(Bed bed)
+        public RoomBedRemovedEvent(Bed bed)
         {
             Bed = bed;
         }

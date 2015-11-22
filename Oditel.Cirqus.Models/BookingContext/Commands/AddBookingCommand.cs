@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Oditel.Cirqus.Models.BaseContext.Commands;
 using Oditel.Models.BookingContext;
 
-namespace Oditel.Cirqus.Models.Commands
+namespace Oditel.Cirqus.Models.BookingContext.Commands
 {
     public class AddBookingCommand : CreateCommand<Booking>
     {

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using d60.Cirqus.Events;
-using Oditel.Cirqus.Models.Events;
+using Oditel.Cirqus.Models.BaseContext;
+using Oditel.Cirqus.Models.BaseContext.Events;
+using Oditel.Cirqus.Models.RoomContext.Events;
 using Oditel.Models.RoomContext;
 
-namespace Oditel.Cirqus.Models
+namespace Oditel.Cirqus.Models.RoomContext
 {
     public class Room : AggregateRootBase, IRoom,
         IEmit<AggregateRootCreatedEvent<Room>>,

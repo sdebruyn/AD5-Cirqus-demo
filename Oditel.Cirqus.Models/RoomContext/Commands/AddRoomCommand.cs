@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Oditel.Cirqus.Models.BaseContext.Commands;
 using Oditel.Models.RoomContext;
 
-namespace Oditel.Cirqus.Models.Commands
+namespace Oditel.Cirqus.Models.RoomContext.Commands
 {
     public class AddRoomCommand : CreateCommand<Room>
     {
