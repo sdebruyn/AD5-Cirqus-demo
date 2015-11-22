@@ -57,6 +57,7 @@
     <Compile Include="Views\Models\Booking.cs" />
     <Compile Include="Views\Models\Customer.cs" />
     <Compile Include="Views\Models\Room.cs" />
+    <Compile Include="Views\RoomStatisticsView.cs" />
     <Compile Include="Views\RoomView.cs" />
   </ItemGroup>
   <ItemGroup>
