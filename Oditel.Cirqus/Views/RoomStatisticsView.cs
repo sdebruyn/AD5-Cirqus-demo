@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using d60.Cirqus.Views.ViewManagers;
 using d60.Cirqus.Views.ViewManagers.Locators;
-using Oditel.Cirqus.Models.Events;
+using Oditel.Cirqus.Models.BookingContext.Events;
 
 namespace Oditel.Cirqus.Views
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using d60.Cirqus.Commands;
-using Oditel.Cirqus.Models.Exceptions;
+using Oditel.Cirqus.Models.BaseContext.Exceptions;
 
-namespace Oditel.Cirqus.Models.Commands
+namespace Oditel.Cirqus.Models.BaseContext.Commands
 {
     public abstract class CreateCommand<TAggregateRoot> : ExecutableCommand, ICreateCommand
         where TAggregateRoot : AggregateRootBase, new()

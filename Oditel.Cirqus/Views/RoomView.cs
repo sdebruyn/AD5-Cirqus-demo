@@ -5,7 +5,9 @@ using d60.Cirqus.Views.ViewManagers;
 using d60.Cirqus.Views.ViewManagers.Locators;
 using Newtonsoft.Json;
 using Oditel.Cirqus.Models;
-using Oditel.Cirqus.Models.Events;
+using Oditel.Cirqus.Models.BaseContext.Events;
+using Oditel.Cirqus.Models.RoomContext;
+using Oditel.Cirqus.Models.RoomContext.Events;
 using Oditel.Models.RoomContext;
 
 namespace Oditel.Cirqus.Views

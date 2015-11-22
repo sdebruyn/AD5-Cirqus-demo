@@ -1,7 +1,7 @@
 ﻿using d60.Cirqus.Events;
 using Oditel.Models.RoomContext;
 
-namespace Oditel.Cirqus.Models.Events
+namespace Oditel.Cirqus.Models.RoomContext.Events
 {
     public class RoomInfoUpdatedEvent : DomainEvent<Room>
     {
