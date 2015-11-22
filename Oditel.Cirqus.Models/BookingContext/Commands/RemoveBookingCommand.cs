@@ -1,6 +1,7 @@
 ﻿using System;
+using Oditel.Cirqus.Models.BaseContext.Commands;
 
-namespace Oditel.Cirqus.Models.Commands
+namespace Oditel.Cirqus.Models.BookingContext.Commands
 {
     public class RemoveBookingCommand : UpdateCommand<Booking>
     {

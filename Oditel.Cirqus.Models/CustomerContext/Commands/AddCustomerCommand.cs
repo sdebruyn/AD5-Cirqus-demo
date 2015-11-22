@@ -1,6 +1,7 @@
-﻿using Oditel.Models.CustomerContext;
+﻿using Oditel.Cirqus.Models.BaseContext.Commands;
+using Oditel.Models.CustomerContext;
 
-namespace Oditel.Cirqus.Models.Commands
+namespace Oditel.Cirqus.Models.CustomerContext.Commands
 {
     public class AddCustomerCommand : CreateCommand<Customer>
     {

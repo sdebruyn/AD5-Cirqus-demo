@@ -4,7 +4,9 @@ using d60.Cirqus.Extensions;
 using d60.Cirqus.Views.ViewManagers;
 using d60.Cirqus.Views.ViewManagers.Locators;
 using Oditel.Cirqus.Models;
-using Oditel.Cirqus.Models.Events;
+using Oditel.Cirqus.Models.BaseContext.Events;
+using Oditel.Cirqus.Models.CustomerContext;
+using Oditel.Cirqus.Models.CustomerContext.Events;
 using Oditel.Models.CustomerContext;
 
 namespace Oditel.Cirqus.Views

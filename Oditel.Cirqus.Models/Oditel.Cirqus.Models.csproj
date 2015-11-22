@@ -44,30 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateRootBase.cs" />
-    <Compile Include="Booking.cs" />
-    <Compile Include="Commands\AddBookingCommand.cs" />
-    <Compile Include="Commands\AddCustomerCommand.cs" />
-    <Compile Include="Commands\AddRoomCommand.cs" />
-    <Compile Include="Commands\CreateCommand.cs" />
-    <Compile Include="Commands\ICreateCommand.cs" />
-    <Compile Include="Commands\RemoveBookingCommand.cs" />
-    <Compile Include="Commands\UpdateCommand.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Events\AggregateRootCreatedEvent.cs" />
-    <Compile Include="Events\AggregateRootDeletedEvent.cs" />
-    <Compile Include="Events\BookingInfoUpdatedEvent.cs" />
-    <Compile Include="Events\BookingRoomAddedEvent.cs" />
-    <Compile Include="Events\BookingRoomRemovedEvent.cs" />
-    <Compile Include="Events\CustomerInfoUpdatedEvent.cs" />
-    <Compile Include="Events\RoomBedAddedEvent.cs" />
-    <Compile Include="Events\RoomInfoUpdatedEvent.cs" />
-    <Compile Include="Events\RoomBedRemovedEvent.cs" />
-    <Compile Include="Exceptions\ActionFailedException.cs" />
-    <Compile Include="Exceptions\CreationFailedException.cs" />
-    <Compile Include="Exceptions\LoadingFailedException.cs" />
+    <Compile Include="BaseContext\AggregateRootBase.cs" />
+    <Compile Include="BookingContext\Booking.cs" />
+    <Compile Include="BookingContext\Commands\AddBookingCommand.cs" />
+    <Compile Include="CustomerContext\Commands\AddCustomerCommand.cs" />
+    <Compile Include="RoomContext\Commands\AddRoomCommand.cs" />
+    <Compile Include="BaseContext\Commands\CreateCommand.cs" />
+    <Compile Include="BaseContext\Commands\ICreateCommand.cs" />
+    <Compile Include="BookingContext\Commands\RemoveBookingCommand.cs" />
+    <Compile Include="BaseContext\Commands\UpdateCommand.cs" />
+    <Compile Include="CustomerContext\Customer.cs" />
+    <Compile Include="BaseContext\Events\AggregateRootCreatedEvent.cs" />
+    <Compile Include="BaseContext\Events\AggregateRootDeletedEvent.cs" />
+    <Compile Include="BookingContext\Events\BookingInfoUpdatedEvent.cs" />
+    <Compile Include="BookingContext\Events\BookingRoomAddedEvent.cs" />
+    <Compile Include="BookingContext\Events\BookingRoomRemovedEvent.cs" />
+    <Compile Include="CustomerContext\Events\CustomerInfoUpdatedEvent.cs" />
+    <Compile Include="RoomContext\Events\RoomBedAddedEvent.cs" />
+    <Compile Include="RoomContext\Events\RoomInfoUpdatedEvent.cs" />
+    <Compile Include="RoomContext\Events\RoomBedRemovedEvent.cs" />
+    <Compile Include="BaseContext\Exceptions\ActionFailedException.cs" />
+    <Compile Include="BaseContext\Exceptions\CreationFailedException.cs" />
+    <Compile Include="BaseContext\Exceptions\LoadingFailedException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Room.cs" />
+    <Compile Include="RoomContext\Room.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

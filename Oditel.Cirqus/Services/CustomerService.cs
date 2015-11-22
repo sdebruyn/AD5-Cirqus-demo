@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using d60.Cirqus;
-using Oditel.Cirqus.Models.Commands;
-using Oditel.Cirqus.Models.Exceptions;
+using Oditel.Cirqus.Models.BaseContext.Exceptions;
+using Oditel.Cirqus.Models.CustomerContext.Commands;
 using Oditel.Cirqus.Views;
 using Oditel.Models.CustomerContext;
 using Oditel.Services;

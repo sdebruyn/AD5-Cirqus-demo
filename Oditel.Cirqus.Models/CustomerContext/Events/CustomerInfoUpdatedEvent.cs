@@ -1,7 +1,7 @@
 ﻿using d60.Cirqus.Events;
 using Oditel.Models.CustomerContext;
 
-namespace Oditel.Cirqus.Models.Events
+namespace Oditel.Cirqus.Models.CustomerContext.Events
 {
     public class CustomerInfoUpdatedEvent : DomainEvent<Customer>
     {
