@@ -66,7 +66,7 @@ namespace Oditel.Cirqus.Views
             SerializedBeds = JsonConvert.SerializeObject(beds);
         }
 
-        private List<Bed> GetBeds() => JsonConvert.DeserializeObject<List<Bed>>(SerializedBeds);
+        private List<Bed> GetBeds() => string.IsNullOrWhiteSpace(SerializedBeds) ? new List<Bed>() : JsonConvert.DeserializeObject<List<Bed>>(SerializedBeds);
 
         public IRoom GetRoomFromView()
         {
@@ -76,7 +76,7 @@ namespace Oditel.Cirqus.Views
                 DeletedDate = DeletedDate
             };
 
-            room.UpdateInfo(HasTV, SeperateToilet, JsonConvert.DeserializeObject<Bathroom>(SerializedBathroom),
+            room.UpdateInfo(HasTV, SeperateToilet, string.IsNullOrWhiteSpace(SerializedBathroom) ? null : JsonConvert.DeserializeObject<Bathroom>(SerializedBathroom),
                 Dimensions);
             GetBeds().ForEach(room.AddBed);
 

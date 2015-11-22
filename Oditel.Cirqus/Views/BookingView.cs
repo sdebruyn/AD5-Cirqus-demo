@@ -83,7 +83,7 @@ namespace Oditel.Cirqus.Views
             SerializedRooms = JsonConvert.SerializeObject(rooms);
         }
 
-        private List<Guid> GetRooms() => JsonConvert.DeserializeObject<List<Guid>>(SerializedRooms);
+        private List<Guid> GetRooms() => string.IsNullOrWhiteSpace(SerializedRooms) ? new List<Guid>() : JsonConvert.DeserializeObject<List<Guid>>(SerializedRooms);
 
         private class Locator : HandlerViewLocator,
             IGetViewIdsFor<AggregateRootCreatedEvent<Booking>>,
