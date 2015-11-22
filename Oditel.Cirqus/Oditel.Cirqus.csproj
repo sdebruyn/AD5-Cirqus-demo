@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5549E33D-A6B2-48E6-8635-514AE33D3B0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Oditel.Cirqus</RootNamespace>
+    <AssemblyName>Oditel.Cirqus</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="d60.Cirqus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\d60.Cirqus.0.63.12\lib\NET45\d60.Cirqus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BookingService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Views\BookingView.cs" />
+    <Compile Include="Views\CustomerView.cs" />
+    <Compile Include="Views\Models\Booking.cs" />
+    <Compile Include="Views\Models\Customer.cs" />
+    <Compile Include="Views\Models\Room.cs" />
+    <Compile Include="Views\RoomStatisticsView.cs" />
+    <Compile Include="Views\RoomView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Oditel.Cirqus.Models\Oditel.Cirqus.Models.csproj">
+      <Project>{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB}</Project>
+      <Name>Oditel.Cirqus.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Oditel.Models\Oditel.Models.csproj">
+      <Project>{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}</Project>
+      <Name>Oditel.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Oditel.Services\Oditel.Services.csproj">
+      <Project>{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}</Project>
+      <Name>Oditel.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

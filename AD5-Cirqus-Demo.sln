@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oditel.Presentation", "Oditel.Presentation", "{B7A4EA40-A057-462A-B7B4-4146E92AEACB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oditel.Infrastructure", "Oditel.Infrastructure", "{ACB7C396-88C2-48C8-95F7-4A906F092FA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oditel.Domain", "Oditel.Domain", "{C1817CBB-6122-4281-9149-0E79EFE8D517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oditel.Models", "Oditel.Models\Oditel.Models.csproj", "{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oditel.Services", "Oditel.Services\Oditel.Services.csproj", "{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oditel.Cirqus", "Oditel.Cirqus\Oditel.Cirqus.csproj", "{5549E33D-A6B2-48E6-8635-514AE33D3B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oditel.Cirqus.Models", "Oditel.Cirqus.Models\Oditel.Cirqus.Models.csproj", "{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oditel.Console", "Oditel.Console\Oditel.Console.csproj", "{FBD5756F-A6F5-49AF-BD5D-B1C797663960}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF32CC34-FFF3-416F-AC26-E0F42140BE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5549E33D-A6B2-48E6-8635-514AE33D3B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5549E33D-A6B2-48E6-8635-514AE33D3B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5549E33D-A6B2-48E6-8635-514AE33D3B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5549E33D-A6B2-48E6-8635-514AE33D3B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD5756F-A6F5-49AF-BD5D-B1C797663960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD5756F-A6F5-49AF-BD5D-B1C797663960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD5756F-A6F5-49AF-BD5D-B1C797663960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD5756F-A6F5-49AF-BD5D-B1C797663960}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2A0BBFE-9349-4058-87F9-9646FE3BE3D8} = {C1817CBB-6122-4281-9149-0E79EFE8D517}
+		{DF32CC34-FFF3-416F-AC26-E0F42140BE2B} = {C1817CBB-6122-4281-9149-0E79EFE8D517}
+		{5549E33D-A6B2-48E6-8635-514AE33D3B0C} = {ACB7C396-88C2-48C8-95F7-4A906F092FA5}
+		{5809ACD7-1829-4B64-9A38-C5C9E7FEA5EB} = {ACB7C396-88C2-48C8-95F7-4A906F092FA5}
+		{FBD5756F-A6F5-49AF-BD5D-B1C797663960} = {B7A4EA40-A057-462A-B7B4-4146E92AEACB}
+	EndGlobalSection
+EndGlobal
