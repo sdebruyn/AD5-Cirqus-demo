@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using d60.Cirqus.Events;
 using Oditel.Cirqus.Models.Events;
-using Oditel.Models;
 using Oditel.Models.RoomContext;
 
 namespace Oditel.Cirqus.Models
@@ -52,7 +51,10 @@ namespace Oditel.Cirqus.Models
             HasTV = e.Tv;
             SeperateToilet = e.SeperateToilet;
             Bathroom = e.Bathroom;
+            Dimensions = e.Dimensions;
         }
+
+        public Dimensions Dimensions { get; private set; }
 
         public override DateTimeOffset? CreatedDate
         {
@@ -86,10 +88,10 @@ namespace Oditel.Cirqus.Models
             Emit(new RoomBedRemovedEvent(bed));
         }
 
-        public void UpdateInfo(bool tv, bool seperateToilet, Bathroom bathroom)
+        public void UpdateInfo(bool tv, bool seperateToilet, Bathroom bathroom, Dimensions dimensions)
         {
             ThrowIfDeleted();
-            Emit(new RoomInfoUpdatedEvent(tv, seperateToilet, bathroom));
+            Emit(new RoomInfoUpdatedEvent(tv, seperateToilet, bathroom, dimensions));
         }
     }
 }

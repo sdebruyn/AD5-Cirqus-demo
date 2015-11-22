@@ -6,7 +6,6 @@ using d60.Cirqus.Views.ViewManagers.Locators;
 using Newtonsoft.Json;
 using Oditel.Cirqus.Models;
 using Oditel.Cirqus.Models.Events;
-using Oditel.Models;
 using Oditel.Models.RoomContext;
 
 namespace Oditel.Cirqus.Views
@@ -25,6 +24,7 @@ namespace Oditel.Cirqus.Views
         public bool SeperateToilet { get; set; }
         public bool HasTV { get; set; }
         public string SerializedBeds { get; set; }
+        public Dimensions Dimensions { get; set; }
 
         public void Handle(IViewContext context, AggregateRootCreatedEvent<Room> domainEvent)
         {
@@ -55,6 +55,7 @@ namespace Oditel.Cirqus.Views
             HasTV = domainEvent.Tv;
             SeperateToilet = domainEvent.SeperateToilet;
             SerializedBathroom = JsonConvert.SerializeObject(domainEvent.Bathroom);
+            Dimensions = domainEvent.Dimensions;
         }
 
         public string Id { get; set; }
@@ -75,7 +76,8 @@ namespace Oditel.Cirqus.Views
                 DeletedDate = DeletedDate
             };
 
-            room.UpdateInfo(HasTV, SeperateToilet, JsonConvert.DeserializeObject<Bathroom>(SerializedBathroom));
+            room.UpdateInfo(HasTV, SeperateToilet, JsonConvert.DeserializeObject<Bathroom>(SerializedBathroom),
+                Dimensions);
             GetBeds().ForEach(room.AddBed);
 
             return room;

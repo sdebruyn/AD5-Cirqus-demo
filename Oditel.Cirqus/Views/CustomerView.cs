@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using d60.Cirqus.Extensions;
 using d60.Cirqus.Views.ViewManagers;
 using d60.Cirqus.Views.ViewManagers.Locators;
-using Newtonsoft.Json;
 using Oditel.Cirqus.Models;
 using Oditel.Cirqus.Models.Events;
-using Oditel.Models;
 using Oditel.Models.CustomerContext;
 
 namespace Oditel.Cirqus.Views
@@ -18,7 +16,7 @@ namespace Oditel.Cirqus.Views
     {
         public string Name { get; set; }
         public string Email { get; set; }
-        public string SerializedAddress { get; set; }
+        public Address Address { get; set; }
         public DateTimeOffset? CreatedDate { get; set; }
         public DateTimeOffset? DeletedDate { get; set; }
 
@@ -38,7 +36,7 @@ namespace Oditel.Cirqus.Views
         {
             Name = domainEvent.Name;
             Email = domainEvent.Email;
-            SetAddress(domainEvent.Address);
+            Address = domainEvent.Address;
         }
 
         public string Id { get; set; }
@@ -52,15 +50,8 @@ namespace Oditel.Cirqus.Views
                 DeletedDate = DeletedDate
             };
 
-            customer.UpdateInfo(Name, Email, GetAddress());
+            customer.UpdateInfo(Name, Email, Address);
             return customer;
-        }
-
-        private Address GetAddress() => JsonConvert.DeserializeObject<Address>(SerializedAddress);
-
-        private void SetAddress(Address address)
-        {
-            SerializedAddress = JsonConvert.SerializeObject(address);
         }
 
         private class Locator : HandlerViewLocator,

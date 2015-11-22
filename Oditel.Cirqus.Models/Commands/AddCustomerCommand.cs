@@ -1,5 +1,4 @@
-﻿using Oditel.Models;
-using Oditel.Models.CustomerContext;
+﻿using Oditel.Models.CustomerContext;
 
 namespace Oditel.Cirqus.Models.Commands
 {

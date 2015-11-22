@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Oditel.Models;
 using Oditel.Models.CustomerContext;
 
 namespace Oditel.Services

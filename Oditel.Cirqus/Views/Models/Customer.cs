@@ -1,5 +1,4 @@
 ﻿using System;
-using Oditel.Models;
 using Oditel.Models.CustomerContext;
 
 namespace Oditel.Cirqus.Views.Models

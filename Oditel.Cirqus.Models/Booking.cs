@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using d60.Cirqus.Events;
 using Oditel.Cirqus.Models.Events;
-using Oditel.Models;
 using Oditel.Models.BookingContext;
 
 namespace Oditel.Cirqus.Models

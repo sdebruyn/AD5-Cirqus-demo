@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Oditel.Models;
 using Oditel.Models.BookingContext;
 
 namespace Oditel.Cirqus.Models.Commands

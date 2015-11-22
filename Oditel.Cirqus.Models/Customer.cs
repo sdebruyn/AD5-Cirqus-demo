@@ -1,7 +1,6 @@
 ﻿using System;
 using d60.Cirqus.Events;
 using Oditel.Cirqus.Models.Events;
-using Oditel.Models;
 using Oditel.Models.CustomerContext;
 
 namespace Oditel.Cirqus.Models
