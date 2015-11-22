@@ -22,8 +22,8 @@ namespace Oditel.Cirqus.Services
             _processor = processor;
         }
 
-        private IQueryable<CustomerView> Customers
-            => _customers.Where(c => c.DeletedDate == null && c.CreatedDate != null);
+        private IList<CustomerView> Customers
+            => _customers.Where(c => c.DeletedDate == null && c.CreatedDate != null).ToList();
 
         public Guid AddCustomer(ICustomer customer)
         {

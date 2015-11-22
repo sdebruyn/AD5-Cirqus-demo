@@ -22,8 +22,8 @@ namespace Oditel.Cirqus.Services
             _processor = processor;
         }
 
-        private IQueryable<BookingView> Bookings => _bookings.Where(b => b.DeletedDate == null && b.CreatedDate != null)
-            ;
+        private IList<BookingView> Bookings
+            => _bookings.Where(b => b.DeletedDate == null && b.CreatedDate != null).ToList();
 
         public Guid AddBooking(IBooking booking)
         {

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Threading;
 using d60.Cirqus;
 using d60.Cirqus.EntityFramework;
+using d60.Cirqus.Logging;
 using d60.Cirqus.MongoDb.Views;
 using d60.Cirqus.MsSql.Config;
 using d60.Cirqus.Views;
@@ -18,7 +19,7 @@ namespace Oditel.Console
 {
     internal class Program
     {
-        private const int SleepTimeout = 2000;
+        private const int SleepTimeout = 5000;
 
         private static void Main()
         {
@@ -53,6 +54,7 @@ namespace Oditel.Console
 
             var processor =
                 CommandProcessor.With()
+                    .Logging(l => l.UseConsole(Logger.Level.Debug))
                     .EventStore(e => e.UseSqlServer("CirqusDemo", "Events"))
                     .EventDispatcher(conf => conf.UseViewManagerEventDispatcher(viewManagers.ToArray()))
                     .Options(opt => opt.PurgeExistingViews(true))
@@ -70,22 +72,22 @@ namespace Oditel.Console
             var room1 = roomService.AddRoom(true, false,
                 new Bathroom(new Dimensions(10, 10, 10), true, true, false, true), new Dimensions(20, 20, 20),
                 new Bed(Bed.Size.King));
-            System.Console.WriteLine($"Created room with ID {room1}.");
+            PrintDebug($"Created room with ID {room1}.");
 
             var room2 = roomService.AddRoom(true, false,
                 new Bathroom(new Dimensions(9, 9, 9), true, false, true, true), new Dimensions(15, 15, 15),
                 new Bed(Bed.Size.Queen));
-            System.Console.WriteLine($"Created room with ID {room2}.");
+            PrintDebug($"Created room with ID {room2}.");
 
             var room3 = roomService.AddRoom(true, false,
                 new Bathroom(new Dimensions(8, 8, 8), true, true, false, true), new Dimensions(10, 10, 10),
                 new Bed(Bed.Size.Full));
-            System.Console.WriteLine($"Created room with ID {room3}.");
+            PrintDebug($"Created room with ID {room3}.");
 
             var room4 = roomService.AddRoom(true, true,
                 new Bathroom(new Dimensions(7, 7, 7), false, true, false, true), new Dimensions(5, 5, 5),
                 new Bed(Bed.Size.Single));
-            System.Console.WriteLine($"Created room with ID {room4}.");
+            PrintDebug($"Created room with ID {room4}.");
 
             Thread.Sleep(SleepTimeout);
 
@@ -93,10 +95,10 @@ namespace Oditel.Console
             Debugger.Break();
 
             var allRooms = roomService.GetAllRooms();
-            System.Console.WriteLine($"Found {allRooms.Count} rooms!");
+            PrintDebug($"Found {allRooms.Count} rooms!");
             foreach (var room in allRooms)
             {
-                System.Console.WriteLine($"Found room: {room}");
+                PrintDebug($"Found room: {room}");
             }
 
             // Create customers
@@ -104,11 +106,11 @@ namespace Oditel.Console
 
             var customer1 = customerService.AddCustomer("Jan Janssens", "jan@janssens.be",
                 new Address("Straat Zonder Naam 1", null, "1000", "Brussels", Address.ECountry.Belgium));
-            System.Console.WriteLine($"Created customer with ID {customer1}.");
+            PrintDebug($"Created customer with ID {customer1}.");
 
             var customer2 = customerService.AddCustomer("Peter Peeters", "peter@peeters.be",
                 new Address("Straat Zonder Naam 2", null, "2000", "Antwerp", Address.ECountry.Belgium));
-            System.Console.WriteLine($"Created customer with ID {customer2}.");
+            PrintDebug($"Created customer with ID {customer2}.");
 
             Thread.Sleep(SleepTimeout);
 
@@ -116,10 +118,10 @@ namespace Oditel.Console
             Debugger.Break();
 
             var allCustomers = customerService.GetAllCustomers();
-            System.Console.WriteLine($"Found {allCustomers.Count} customers!");
+            PrintDebug($"Found {allCustomers.Count} customers!");
             foreach (var customer in allCustomers)
             {
-                System.Console.WriteLine($"Found customer: {customer}");
+                PrintDebug($"Found customer: {customer}");
             }
 
             // Create booking
@@ -127,7 +129,7 @@ namespace Oditel.Console
 
             var booking1 = bookingService.AddBooking(DateTimeOffset.UtcNow.AddDays(7), DateTimeOffset.UtcNow.AddDays(14),
                 true, customer1, room1, room2);
-            System.Console.WriteLine($"Created booking with ID {booking1}.");
+            PrintDebug($"Created booking with ID {booking1}.");
 
             Thread.Sleep(SleepTimeout);
 
@@ -135,13 +137,13 @@ namespace Oditel.Console
             Debugger.Break();
 
             var booking1FromService = bookingService.GetBookingById(booking1);
-            System.Console.WriteLine($"Found booking: {booking1FromService}");
+            PrintDebug($"Found booking: {booking1FromService}");
 
             // Remove booking
             Debugger.Break();
 
             var removedBooking1 = bookingService.RemoveBooking(booking1);
-            System.Console.WriteLine($"Booking removed? {removedBooking1}");
+            PrintDebug($"Booking removed? {removedBooking1}");
 
             Thread.Sleep(SleepTimeout);
 
@@ -149,7 +151,16 @@ namespace Oditel.Console
             Debugger.Break();
 
             var allBookings = bookingService.GetAllBookings();
-            System.Console.WriteLine($"Found {allBookings.Count} bookings!");
+            PrintDebug($"Found {allBookings.Count} bookings!");
+
+            System.Console.ReadKey();
+        }
+
+        private static void PrintDebug(string debugInfo)
+        {
+            System.Console.ForegroundColor = ConsoleColor.Cyan;
+            System.Console.WriteLine(debugInfo);
+            System.Console.ResetColor();
         }
     }
 }

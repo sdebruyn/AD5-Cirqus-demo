@@ -21,7 +21,7 @@ namespace Oditel.Cirqus.Services
             _processor = processor;
         }
 
-        private IQueryable<RoomView> Rooms => _rooms.Where(r => r.DeletedDate == null && r.CreatedDate != null);
+        private IList<RoomView> Rooms => _rooms.Where(r => r.DeletedDate == null && r.CreatedDate != null).ToList();
 
         public Guid AddRoom(IRoom room)
         {
