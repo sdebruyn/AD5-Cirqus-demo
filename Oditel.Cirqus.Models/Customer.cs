@@ -16,13 +16,13 @@ namespace Oditel.Cirqus.Models
         public override DateTimeOffset? CreatedDate
         {
             get { return _createdDate; }
-            set { Emit(new AggregateRootDeletedEvent<Customer>(value)); }
+            set { Emit(new AggregateRootCreatedEvent<Customer>(value)); }
         }
 
         public override DateTimeOffset? DeletedDate
         {
             get { return _deletedDate; }
-            set { Emit(new AggregateRootCreatedEvent<Customer>(value)); }
+            set { Emit(new AggregateRootDeletedEvent<Customer>(value)); }
         }
 
         public Guid? CustomerId => ConvertIdToGuid();

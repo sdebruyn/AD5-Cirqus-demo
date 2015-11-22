@@ -22,7 +22,7 @@ namespace Oditel.Cirqus.Views.Models
         public bool Paid { get; private set; }
         public Guid CustomerId { get; private set; }
 
-        public IEnumerable<Guid> Rooms => _rooms;
+        public ICollection<Guid> Rooms => _rooms;
 
         public void UpdateInfo(DateTimeOffset checkIn, DateTimeOffset checkOut, bool paid, Guid customerId)
         {
@@ -41,5 +41,7 @@ namespace Oditel.Cirqus.Views.Models
         {
             _rooms.Remove(roomId);
         }
+
+        public override string ToString() => $"BookingId: {BookingId}, CustomerId: {CustomerId}";
     }
 }

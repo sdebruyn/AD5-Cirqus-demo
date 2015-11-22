@@ -42,5 +42,7 @@ namespace Oditel.Cirqus.Views.Models
             Bathroom = bathroom;
             Dimensions = dimensions;
         }
+
+        public override string ToString() => $"RoomId: {RoomId}, Dimensions: {Dimensions}";
     }
 }

@@ -17,7 +17,11 @@ namespace Oditel.Models.RoomContext
             BedSize = bedSize;
         }
 
-        public Size BedSize { get; }
+        public Bed()
+        {
+        }
+
+        public Size BedSize { get; set; }
 
         public bool Equals(Bed other)
         {

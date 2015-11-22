@@ -42,10 +42,10 @@ namespace Oditel.Cirqus.Services
             {
                 return command.CreatedGuid;
             }
-            throw new CreationFailedException(command.CreatedGuid, typeof(IRoom));
+            throw new CreationFailedException(command.CreatedGuid, typeof (IRoom));
         }
 
-        public IEnumerable<IRoom> GetAllRooms() => Rooms.Select(r => r.GetRoomFromView()).ToList();
+        public ICollection<IRoom> GetAllRooms() => Rooms.Select(r => r.GetRoomFromView()).ToList();
 
         public IRoom GetRoomById(Guid roomId)
         {

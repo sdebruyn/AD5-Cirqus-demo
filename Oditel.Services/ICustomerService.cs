@@ -8,7 +8,7 @@ namespace Oditel.Services
     {
         Guid AddCustomer(ICustomer customer);
         Guid AddCustomer(string name, string email, Address address);
-        IEnumerable<ICustomer> GetAllCustomers();
+        ICollection<ICustomer> GetAllCustomers();
         ICustomer GetCustomer(Guid customerId);
     }
 }

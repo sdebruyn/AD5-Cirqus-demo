@@ -23,5 +23,7 @@ namespace Oditel.Cirqus.Views.Models
             Email = email;
             Address = address;
         }
+
+        public override string ToString() => $"CustomerId: {CustomerId}, Name: {Name}";
     }
 }

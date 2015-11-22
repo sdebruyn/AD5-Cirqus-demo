@@ -25,13 +25,13 @@ namespace Oditel.Cirqus.Models
         public override DateTimeOffset? CreatedDate
         {
             get { return _createdDate; }
-            set { Emit(new AggregateRootDeletedEvent<Booking>(value)); }
+            set { Emit(new AggregateRootCreatedEvent<Booking>(value)); }
         }
 
         public override DateTimeOffset? DeletedDate
         {
             get { return _deletedDate; }
-            set { Emit(new AggregateRootCreatedEvent<Booking>(value)); }
+            set { Emit(new AggregateRootDeletedEvent<Booking>(value)); }
         }
 
         public Guid? BookingId => ConvertIdToGuid();
@@ -40,7 +40,7 @@ namespace Oditel.Cirqus.Models
         public bool Paid { get; private set; }
         public Guid CustomerId { get; private set; }
 
-        public IEnumerable<Guid> Rooms => _rooms;
+        public ICollection<Guid> Rooms => _rooms;
 
         public void UpdateInfo(DateTimeOffset checkIn, DateTimeOffset checkOut, bool paid, Guid customerId)
         {

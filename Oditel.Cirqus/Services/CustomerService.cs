@@ -44,10 +44,10 @@ namespace Oditel.Cirqus.Services
             {
                 return command.CreatedGuid;
             }
-            throw new CreationFailedException(command.CreatedGuid, typeof(ICustomer));
+            throw new CreationFailedException(command.CreatedGuid, typeof (ICustomer));
         }
 
-        public IEnumerable<ICustomer> GetAllCustomers() => Customers.Select(c => c.GetCustomerFromView());
+        public ICollection<ICustomer> GetAllCustomers() => Customers.Select(c => c.GetCustomerFromView()).ToList();
 
         public ICustomer GetCustomer(Guid customerId)
         {

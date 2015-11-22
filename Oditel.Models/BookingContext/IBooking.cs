@@ -12,7 +12,7 @@ namespace Oditel.Models.BookingContext
         DateTimeOffset CheckOut { get; }
         bool Paid { get; }
         Guid CustomerId { get; }
-        IEnumerable<Guid> Rooms { get; }
+        ICollection<Guid> Rooms { get; }
         void UpdateInfo(DateTimeOffset checkIn, DateTimeOffset checkOut, bool paid, Guid customerId);
         void AddRoom(Guid roomId);
         void RemoveRoom(Guid roomId);

@@ -36,7 +36,8 @@ namespace Oditel.Cirqus.Services
             throw new CreationFailedException(command.CreatedGuid, typeof (IBooking));
         }
 
-        public Guid AddBooking(DateTimeOffset checkIn, DateTimeOffset checkOut, bool paid, Guid customerId, params Guid[] rooms)
+        public Guid AddBooking(DateTimeOffset checkIn, DateTimeOffset checkOut, bool paid, Guid customerId,
+            params Guid[] rooms)
         {
             var command = new AddBookingCommand(checkIn, checkOut, paid, customerId, rooms);
             var result = _processor.ProcessCommand(command);
@@ -44,13 +45,13 @@ namespace Oditel.Cirqus.Services
             {
                 return command.CreatedGuid;
             }
-            throw new CreationFailedException(command.CreatedGuid, typeof(IBooking));
+            throw new CreationFailedException(command.CreatedGuid, typeof (IBooking));
         }
 
         public bool RemoveBooking(Guid bookingId)
             => _processor.ProcessCommand(new RemoveBookingCommand(bookingId)).EventsWereEmitted;
 
-        public IEnumerable<IBooking> GetAllBookings() => Bookings.Select(b => b.GetBookingFromView());
+        public ICollection<IBooking> GetAllBookings() => Bookings.Select(b => b.GetBookingFromView()).ToList();
 
         public IBooking GetBookingById(Guid bookingId)
         {

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Threading;
 using d60.Cirqus;
 using d60.Cirqus.EntityFramework;
 using d60.Cirqus.MongoDb.Views;
@@ -8,12 +10,16 @@ using d60.Cirqus.MsSql.Config;
 using d60.Cirqus.Views;
 using Oditel.Cirqus.Services;
 using Oditel.Cirqus.Views;
+using Oditel.Models.CustomerContext;
+using Oditel.Models.RoomContext;
 using Oditel.Services;
 
 namespace Oditel.Console
 {
     internal class Program
     {
+        private const int SleepTimeout = 2000;
+
         private static void Main()
         {
             // Cirqus configuration
@@ -56,11 +62,94 @@ namespace Oditel.Console
             IRoomService roomService = new RoomService(processor, rooms);
             ICustomerService customerService = new CustomerService(processor, customers);
 
+            Thread.Sleep(SleepTimeout);
 
-            // Create a new customer
+            // Create rooms
             Debugger.Break();
 
-            
+            var room1 = roomService.AddRoom(true, false,
+                new Bathroom(new Dimensions(10, 10, 10), true, true, false, true), new Dimensions(20, 20, 20),
+                new Bed(Bed.Size.King));
+            System.Console.WriteLine($"Created room with ID {room1}.");
+
+            var room2 = roomService.AddRoom(true, false,
+                new Bathroom(new Dimensions(9, 9, 9), true, false, true, true), new Dimensions(15, 15, 15),
+                new Bed(Bed.Size.Queen));
+            System.Console.WriteLine($"Created room with ID {room2}.");
+
+            var room3 = roomService.AddRoom(true, false,
+                new Bathroom(new Dimensions(8, 8, 8), true, true, false, true), new Dimensions(10, 10, 10),
+                new Bed(Bed.Size.Full));
+            System.Console.WriteLine($"Created room with ID {room3}.");
+
+            var room4 = roomService.AddRoom(true, true,
+                new Bathroom(new Dimensions(7, 7, 7), false, true, false, true), new Dimensions(5, 5, 5),
+                new Bed(Bed.Size.Single));
+            System.Console.WriteLine($"Created room with ID {room4}.");
+
+            Thread.Sleep(SleepTimeout);
+
+            // Get all rooms
+            Debugger.Break();
+
+            var allRooms = roomService.GetAllRooms();
+            System.Console.WriteLine($"Found {allRooms.Count} rooms!");
+            foreach (var room in allRooms)
+            {
+                System.Console.WriteLine($"Found room: {room}");
+            }
+
+            // Create customers
+            Debugger.Break();
+
+            var customer1 = customerService.AddCustomer("Jan Janssens", "jan@janssens.be",
+                new Address("Straat Zonder Naam 1", null, "1000", "Brussels", Address.ECountry.Belgium));
+            System.Console.WriteLine($"Created customer with ID {customer1}.");
+
+            var customer2 = customerService.AddCustomer("Peter Peeters", "peter@peeters.be",
+                new Address("Straat Zonder Naam 2", null, "2000", "Antwerp", Address.ECountry.Belgium));
+            System.Console.WriteLine($"Created customer with ID {customer2}.");
+
+            Thread.Sleep(SleepTimeout);
+
+            // Get all customers
+            Debugger.Break();
+
+            var allCustomers = customerService.GetAllCustomers();
+            System.Console.WriteLine($"Found {allCustomers.Count} customers!");
+            foreach (var customer in allCustomers)
+            {
+                System.Console.WriteLine($"Found customer: {customer}");
+            }
+
+            // Create booking
+            Debugger.Break();
+
+            var booking1 = bookingService.AddBooking(DateTimeOffset.UtcNow.AddDays(7), DateTimeOffset.UtcNow.AddDays(14),
+                true, customer1, room1, room2);
+            System.Console.WriteLine($"Created booking with ID {booking1}.");
+
+            Thread.Sleep(SleepTimeout);
+
+            // Retrieve booking
+            Debugger.Break();
+
+            var booking1FromService = bookingService.GetBookingById(booking1);
+            System.Console.WriteLine($"Found booking: {booking1FromService}");
+
+            // Remove booking
+            Debugger.Break();
+
+            var removedBooking1 = bookingService.RemoveBooking(booking1);
+            System.Console.WriteLine($"Booking removed? {removedBooking1}");
+
+            Thread.Sleep(SleepTimeout);
+
+            // Retrieve bookings
+            Debugger.Break();
+
+            var allBookings = bookingService.GetAllBookings();
+            System.Console.WriteLine($"Found {allBookings.Count} bookings!");
         }
     }
 }

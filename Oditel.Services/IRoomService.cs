@@ -8,7 +8,7 @@ namespace Oditel.Services
     {
         Guid AddRoom(IRoom room);
         Guid AddRoom(bool tv, bool seperateToilet, Bathroom bathroom, Dimensions dimensions, params Bed[] beds);
-        IEnumerable<IRoom> GetAllRooms();
+        ICollection<IRoom> GetAllRooms();
         IRoom GetRoomById(Guid roomId);
     }
 }
