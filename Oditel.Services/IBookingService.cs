@@ -7,6 +7,8 @@ namespace Oditel.Services
     public interface IBookingService
     {
         Guid AddBooking(IBooking booking);
+        Guid AddBooking(DateTimeOffset checkIn, DateTimeOffset checkOut, bool paid, Guid customerId,
+            params Guid[] rooms);
         bool RemoveBooking(Guid bookingId);
         IEnumerable<IBooking> GetAllBookings();
         IBooking GetBookingById(Guid bookingId);

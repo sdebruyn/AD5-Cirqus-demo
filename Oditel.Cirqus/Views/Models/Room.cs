@@ -11,6 +11,7 @@ namespace Oditel.Cirqus.Views.Models
         public Room(Guid id)
         {
             RoomId = id;
+            _beds = new List<Bed>();
         }
 
         public Guid? RoomId { get; }
