@@ -4,6 +4,7 @@ using d60.Cirqus.Events;
 using Oditel.Cirqus.Models.BaseContext;
 using Oditel.Cirqus.Models.BaseContext.Events;
 using Oditel.Cirqus.Models.BookingContext.Events;
+using Oditel.Cirqus.Models.RoomContext;
 using Oditel.Models.BookingContext;
 
 namespace Oditel.Cirqus.Models.BookingContext
@@ -35,7 +36,8 @@ namespace Oditel.Cirqus.Models.BookingContext
             get { return _deletedDate; }
             set
             {
-                foreach (var room in Rooms)
+                var roomCopy = new List<Guid>(Rooms);
+                foreach (var room in roomCopy)
                 {
                     Emit(new BookingRoomRemovedEvent(room, CheckIn));
                 }
@@ -96,7 +98,6 @@ namespace Oditel.Cirqus.Models.BookingContext
 
         public void Apply(BookingRoomRemovedEvent e)
         {
-            ThrowIfDeleted();
             _rooms.Remove(e.RoomId);
         }
     }
