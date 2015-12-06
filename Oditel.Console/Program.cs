@@ -17,6 +17,7 @@ using Oditel.Services;
 
 namespace Oditel.Console
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     internal class Program
     {
         private const int SleepTimeout = 5000;
@@ -52,9 +53,12 @@ namespace Oditel.Console
 
             var processor =
                 CommandProcessor.With()
+#if DEBUG
                     .Logging(l => l.UseConsole(Logger.Level.Debug))
+#endif
                     .EventStore(e => e.UseSqlServer("CirqusDemo", "Events"))
                     .EventDispatcher(conf => conf.UseViewManagerEventDispatcher(viewManagers.ToArray()))
+                    //.EventDispatcher(conf => viewManagers.ForEach(vm => conf.UseViewManagerEventDispatcher(vm)))
                     .Options(opt => opt.PurgeExistingViews(true))
                     .Create();
 
@@ -65,7 +69,12 @@ namespace Oditel.Console
             Thread.Sleep(SleepTimeout);
 
             // Create rooms
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            } 
+#endif
 
             var room1 = roomService.AddRoom(true, false,
                 new Bathroom(new Dimensions(10, 10, 10), true, true, false, true), new Dimensions(20, 20, 20),
@@ -90,7 +99,12 @@ namespace Oditel.Console
             Thread.Sleep(SleepTimeout);
 
             // Get all rooms
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
 
             var allRooms = roomService.GetAllRooms();
             PrintDebug($"Found {allRooms.Count} rooms!");
@@ -113,7 +127,12 @@ namespace Oditel.Console
             Thread.Sleep(SleepTimeout);
 
             // Get all customers
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
 
             var allCustomers = customerService.GetAllCustomers();
             PrintDebug($"Found {allCustomers.Count} customers!");
@@ -123,7 +142,12 @@ namespace Oditel.Console
             }
 
             // Create booking
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
 
             var booking1 = bookingService.AddBooking(DateTimeOffset.UtcNow.AddDays(7), DateTimeOffset.UtcNow.AddDays(14),
                 true, customer1, room1, room2);
@@ -132,13 +156,23 @@ namespace Oditel.Console
             Thread.Sleep(SleepTimeout);
 
             // Retrieve booking
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
 
             var booking1FromService = bookingService.GetBookingById(booking1);
             PrintDebug($"Found booking: {booking1FromService}");
 
             // Remove booking
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
 
             var removedBooking1 = bookingService.RemoveBooking(booking1);
             PrintDebug($"Booking removed? {removedBooking1}");
@@ -146,12 +180,18 @@ namespace Oditel.Console
             Thread.Sleep(SleepTimeout);
 
             // Retrieve bookings
-            Debugger.Break();
+#if DEBUG
+            if (Debugger.IsAttached)
+            {
+                Debugger.Break();
+            }
+#endif
 
             var allBookings = bookingService.GetAllBookings();
             PrintDebug($"Found {allBookings.Count} bookings!");
 
             System.Console.ReadKey();
+            processor.Dispose();
         }
 
         private static void PrintDebug(string debugInfo)
